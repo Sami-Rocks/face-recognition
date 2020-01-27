@@ -58,21 +58,22 @@ async function start() {
           url: url,
           data: JSON.stringify(fileList),
           contentType: "application/json; charset=utf-8",
-          dataType: "json"
+          dataType: "json",
+
       })
   })
   
 }
 
 function loadLabeledImages() {
-  const labels = ['Aidle', 'Sami', 'Sami Danso', 'Hagan']
+  const labels = ['Hagan', 'Sami']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
       for (let i = 1; i <= 2; i++) {
         //const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/WebDevSimplified/Face-Recognition-JavaScript/master/labeled_images/${label}/${i}.jpg`)
         //https://github.com/Sami-Rocks/face-recognition/tree/master/labeled_images/Aidle
-        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/Sami-Rocks/face-recognition/master/labeled_images/${label}/${i}.jpeg`)
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/Sami-Rocks/face-recognition/master/labeled_images/${label}/${i}.jpg`)
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
       }
