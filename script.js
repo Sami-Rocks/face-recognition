@@ -49,17 +49,23 @@ async function start() {
         }
         console.log(fileList)
         }
-
-        const url = 'http://127.0.0.1:5000'
       
       })
     }
-
+        const url = 'http://127.0.0.1:5000/postjson'
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: JSON.stringify(fileList),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json"
+      })
   })
+  
 }
 
 function loadLabeledImages() {
-  const labels = ['Aidle', 'Sami', 'Sami Danso']
+  const labels = ['Aidle', 'Sami', 'Sami Danso', 'Hagan']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
