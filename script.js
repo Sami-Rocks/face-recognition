@@ -70,7 +70,7 @@ function loadLabeledImages() {
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
-      for (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= 7; i++) {
         //const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/WebDevSimplified/Face-Recognition-JavaScript/master/labeled_images/${label}/${i}.jpg`)
         //https://github.com/Sami-Rocks/face-recognition/tree/master/labeled_images/Aidle
         //https://github.com/Sami-Rocks/face-recognition/blob/multiple/labeled_images/Hagan/3.jpg?raw=true
